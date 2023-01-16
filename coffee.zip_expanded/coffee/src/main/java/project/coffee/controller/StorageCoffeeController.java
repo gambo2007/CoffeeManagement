@@ -1,10 +1,9 @@
 package project.coffee.controller;
-import org.springframework.security.access.prepost.PreAuthorize;
-
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,39 +13,38 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import project.coffee.model.Menu;
-import project.coffee.service.MenuService;
+import project.coffee.model.StorageCoffee;
+import project.coffee.service.StorageCoffeeService;
 
 @RestController
-@RequestMapping("/menu")
-public class MenuController {
+@RequestMapping("/storage")
+public class StorageCoffeeController {
 	@Autowired
-	private MenuService service;
+	private StorageCoffeeService service;
 	
-	
-	@GetMapping(value = "/menucoffee")
-	public List<Menu> getAll()
+	@PreAuthorize("hasAnyAuthority('ADMIN', 'STAFF')")
+	@GetMapping(value = "/coffee")
+	public List<StorageCoffee> getAll()
 	{
 		return service.getAll();
 	}
 	
 	@PreAuthorize("hasAnyAuthority('ADMIN', 'STAFF')")
-	@PostMapping(value = "/menucoffee")
-	public Menu add(@RequestBody Menu m) {
-		return service.add(m);
+	@PostMapping(value = "/coffee")
+	public StorageCoffee add(@RequestBody StorageCoffee s) {
+		return service.add(s);
 	}
 	
-	
 	@PreAuthorize("hasAnyAuthority('ADMIN', 'STAFF')")
-	@PutMapping(value = "/menucoffee/{coffee_id}")
-	public Menu update(@PathVariable("Coffee_id")int coffee_id,@RequestBody Menu m)
+	@PutMapping(value = "/coffee/{coffee_id}")
+	public StorageCoffee update(@PathVariable("Coffee_id")int coffee_id,@RequestBody StorageCoffee s)
 	{
-		m.getStorageCoffee().setCoffee_id(coffee_id);
-		return service.update(m);
+		s.setCoffee_id(coffee_id);
+		return service.update(s);
 	}
 	
 	@PreAuthorize("hasAnyAuthority('ADMIN', 'STAFF')")
-	@DeleteMapping(value = "/menucoffee/{coffee_id}")
+	@DeleteMapping(value = "/coffee/{coffee_id}")
 	public void delete(@PathVariable("Coffee_id") int coffee_id)
 	{
 		service.delete(coffee_id);

@@ -1,6 +1,7 @@
 package project.coffee.model;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -39,6 +41,8 @@ public class Customer {
 	@JoinColumn(name="username")
 	private Login username;
 	
+	@OneToMany(mappedBy = "Menu")
+	Set<OrderCoffee> orderlist;
 	
 	public Login getUsername() {
 		return username;

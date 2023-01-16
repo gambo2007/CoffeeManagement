@@ -1,16 +1,19 @@
 package project.coffee.model;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name ="Menu")
 public class Menu {
-	@Id
-	@Column(name="Coffee_id")
-	private int coffee_id;
 	
 	@Column(name="Name")
 	private String coffe_name;
@@ -21,22 +24,32 @@ public class Menu {
 	@Column(name="Price")
 	private String price;
 	
-	public Menu(int coffee_id, String coffe_name, String desc, String price) {
+	@Id
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "Coffee_id", referencedColumnName = "Coffee_id")
+	private StorageCoffee storageCoffee;
+	
+	//OrderCustomer
+	@OneToMany(mappedBy = "Customer")
+	private Set<OrderCoffee> orderlist;
+	
+	
+	public Menu(String coffe_name, String desc, String price, StorageCoffee storageCoffee, Set<OrderCoffee> orderlist) {
 		super();
-		this.coffee_id = coffee_id;
 		this.coffe_name = coffe_name;
 		this.desc = desc;
 		this.price = price;
+		this.storageCoffee = storageCoffee;
+		this.orderlist = orderlist;
 	}
-	public Menu() {
-		super();
+	
+	public StorageCoffee getStorageCoffee() {
+		return storageCoffee;
 	}
-	public int getCoffee_id() {
-		return coffee_id;
+	public void setStorageCoffee(StorageCoffee storageCoffee) {
+		this.storageCoffee = storageCoffee;
 	}
-	public void setCoffee_id(int coffee_id) {
-		this.coffee_id = coffee_id;
-	}
+	
 	public String getCoffe_name() {
 		return coffe_name;
 	}

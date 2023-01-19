@@ -41,7 +41,8 @@ public class Customer {
 	@JoinColumn(name="username")
 	private Login username;
 	
-	@OneToMany(mappedBy = "Menu")
+	//OrderCustomer
+	@OneToMany(mappedBy = "Coffee")
 	Set<OrderCoffee> orderlist;
 	
 	public Login getUsername() {

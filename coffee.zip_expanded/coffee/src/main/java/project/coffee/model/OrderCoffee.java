@@ -16,13 +16,6 @@ public class OrderCoffee {
 	@Id
 	int Ord_id;
 	
-	/*
-	@Column(name="Cus_id")
-	int Cus_id;*/
-	
-	/*
-	@Column(name="Coffee_id")
-	int Coffee_id;*/
 	
 	@Column(name="status")
 	int status;
@@ -34,31 +27,34 @@ public class OrderCoffee {
 	@ManyToOne
     @MapsId("coffee_id")
     @JoinColumn(name = "Coffee_id")
-	Menu menu;
+	Coffee coffee;
 
 	@ManyToOne
     @MapsId("Cus_id")
     @JoinColumn(name = "Cus_id")
 	Customer customer;
 	
-
-	
-    public OrderCoffee(int ord_id, int status, Date ord_Date, Menu menu, Customer customer) {
+    
+	public OrderCoffee(int ord_id, int status, Date ord_Date, Coffee coffee, Customer customer) {
 		super();
 		Ord_id = ord_id;
 		this.status = status;
 		Ord_Date = ord_Date;
-		this.menu = menu;
+		this.coffee = coffee;
 		this.customer = customer;
 	}
+	
 
-	public Menu getMenu() {
-		return menu;
+	public Coffee getCoffee() {
+		return coffee;
 	}
 
-	public void setMenu(Menu menu) {
-		this.menu = menu;
+
+	public void setCoffee(Coffee coffee) {
+		this.coffee = coffee;
 	}
+
+
 
 	public Customer getCustomer() {
 		return customer;

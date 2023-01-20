@@ -5,6 +5,8 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -32,10 +34,15 @@ public class Coffee {
 	@OneToMany(mappedBy = "Customer")
 	private Set<OrderCoffee> orderlist;
 	
+	//Menu
+	@ManyToOne
+	@JoinColumn(name="Menu_Id", nullable=false)
+	private Menu menu;
+	
 	
 	
 	public Coffee(String coffe_name, String desc, String price, Integer quanity, Integer coffee_id,
-			Set<OrderCoffee> orderlist) {
+			Set<OrderCoffee> orderlist, Menu menu) {
 		super();
 		this.coffe_name = coffe_name;
 		this.desc = desc;
@@ -43,9 +50,20 @@ public class Coffee {
 		this.quanity = quanity;
 		this.coffee_id = coffee_id;
 		this.orderlist = orderlist;
+		this.menu = menu;
 	}
-	
-	
+
+
+	public Menu getMenu() {
+		return menu;
+	}
+
+
+	public void setMenu(Menu menu) {
+		this.menu = menu;
+	}
+
+
 	public Integer getQuanity() {
 		return quanity;
 	}

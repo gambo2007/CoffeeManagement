@@ -41,6 +41,30 @@ public class Customer {
 	@JoinColumn(name="username")
 	private Login username;
 	
+	@OneToMany(mappedBy="customer")
+    private Set<Customer_Order> customer_order;
+	
+	
+	public Customer(int cus_id, String cus_name, Date bod, String address, String phoneNumber, String email,
+			Login username, Set<Customer_Order> customer_order) {
+		super();
+		Cus_id = cus_id;
+		this.cus_name = cus_name;
+		this.bod = bod;
+		this.address = address;
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+		this.username = username;
+		this.customer_order = customer_order;
+	}
+	
+	
+	public Set<Customer_Order> getCustomer_order() {
+		return customer_order;
+	}
+	public void setCustomer_order(Set<Customer_Order> customer_order) {
+		this.customer_order = customer_order;
+	}
 	public Login getUsername() {
 		return username;
 	}
@@ -86,18 +110,7 @@ public class Customer {
 	}
 	
 
-	public Customer(int cus_id, String cus_name, Date bod, String address, String phoneNumber, String email) {
-		super();
-		Cus_id = cus_id;
-		this.cus_name = cus_name;
-		this.bod = bod;
-		this.address = address;
-		this.phoneNumber = phoneNumber;
-		this.email = email;
-	}
-	public Customer() {
-		super();
-	}
+	
 	
 }
 

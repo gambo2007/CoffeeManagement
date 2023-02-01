@@ -1,0 +1,41 @@
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-9 col-lg-6 col-xl-5">
+          <img src="../../assets/images/icon.png"
+            class="img-fluid" alt="Sample image">
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <div class="card-body">
+            <div class="container">
+              <h2>Welcome to login Page</h2>
+              <form #loginForm="ngForm" novalidate (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <label>UserName</label>
+                  <input type="text" class="form-control" name="username" #username="ngModel"
+                  [class.is-invalid]="username.touched && username.invalid && (!loginForm.submitted)"
+                  required [(ngModel)]="user.username">
+                  <small class="text-danger" [class.d-none]="username.untouched || username.valid || loginForm.submitted">
+                      Username is required
+                    </small>
+              </div>
+
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" name="password" #password="ngModel"
+                [class.is-invalid]="password.touched && password.invalid && (!loginForm.submitted)"
+                required [(ngModel)]="user.password">
+                <small class="text-danger" [class.d-none]="password.untouched || password.valid || loginForm.submitted">
+                    Password is required
+                  </small>
+            </div>
+
+            <button [disabled]="loginForm.invalid" class="btn btn-secondary" type="submit">Login</button>
+              
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

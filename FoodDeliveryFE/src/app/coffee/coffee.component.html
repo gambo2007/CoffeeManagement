@@ -1,0 +1,15 @@
+<div class="card">
+    <div class="card-header">
+      <h3>Menu Item Component</h3>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">This is a Menu Item component</h5>
+      <a class="btn btn-primary mr-2" [routerLink]="'view-all-menuitem'" >View All Menu Item</a>
+      <a class="btn btn-primary mr-2" [routerLink]="'add-menuitem'" >Add Menu Item</a>
+      
+    </div>
+
+    <div class="card-body">
+        <router-outlet></router-outlet>
+    </div>
+  </div>

@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-header">
+    <h3>View All Menu Component</h3>
+  </div>
+  <div class="card-body">
+    
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Menu Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">&nbsp;</th>
+          <th scope="col">&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let menu of menus">
+          <th scope="row">{{menu.menu_Id}}</th>
+          <td>{{menu.menu_name}}</td>
+          <td>{{menu.description}}</td>
+          <td><a class="btn btn-primary" [routerLink]="['update-menu',menu.menu_Id]">Update</a></td>
+          <td><a class="btn btn-danger" [routerLink]="['delete-menu',menu.menu_Id]">Delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

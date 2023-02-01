@@ -47,7 +47,10 @@
                                 </table>
                             </main>
                         </div>
-                        <div class="thanks">{{message}}<br><button class="btn btn-secondary" type="submit" (click)="placeOrder()" style="background-color: gray;">Place Order</button></div>
+                        <div class="row">
+                            <div class="thanks">{{message}}<br><button class="btn btn-secondary" type="submit" (click)="placeOrder()" style="background-color: gray;">Place Order</button></div>
+                        <div style="margin-top: 25px;"><button class="btn btn-secondary" type="submit" (click)="clearcart()" style="background-color: gray;">Clear Cart</button></div>
+                        </div>
                     </div>
                     <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
                     <div></div>

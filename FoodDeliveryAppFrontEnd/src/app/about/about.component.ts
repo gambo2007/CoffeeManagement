@@ -12,6 +12,6 @@ export class AboutComponent implements OnInit {
   ngOnInit() {
   }
   contact(){
-    alert("Please drop a mail if you need any assists")
+    alert("Please send me an email if you need any assistance.")
   }
 }

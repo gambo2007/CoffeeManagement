@@ -33,7 +33,18 @@ export class CartComponent implements OnInit {
   }
 
   placeOrder(){
-    alert("Order Successfully");
+    if(sessionStorage.getItem("username")== null){
+      alert("Please login first!!")
+      this._router.navigateByUrl("/dashboard/login");
+    }else
+    {
+      alert("Order Successfully");
+      this.items = [];
+      this.total = 0;
+      this.cartService.clearCart();
+    }
+  }
+  clearcart(){
     this.items = [];
     this.total = 0;
     this.cartService.clearCart();

@@ -50,6 +50,11 @@ const routes: Routes = [
       {path: 'owner/register', component: OwnerRegistrationComponent},
       {path: 'profile', component: ProfileComponent},
       {path: 'cart', component: CartComponent},
+      {path: 'home/menu-view', component: MenuViewComponent,
+        children: [
+          {path: 'menu-view-item/:id', component: MenuViewItemComponent},
+        ]
+      },
       {path: 'menu-view', component: MenuViewComponent,
         children: [
           {path: 'menu-view-item/:id', component: MenuViewItemComponent},
@@ -63,6 +68,11 @@ const routes: Routes = [
     {path: 'dashboard', component: CustomerDashboardComponent,
       children: [
         {path: 'cart', component: CartComponent},
+        {path: 'home/menu-view', component: MenuViewComponent,
+          children: [
+            {path: 'menu-view-item/:id', component: MenuViewItemComponent},
+          ]
+        },
         {path: 'menu-view', component: MenuViewComponent,
           children: [
             {path: 'menu-view-item/:id', component: MenuViewItemComponent},

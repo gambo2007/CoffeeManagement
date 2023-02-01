@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CustomerRegistration } from 'src/app/customer/customer-registration';
+import { CustomerService } from 'src/app/customer/customer.service';
 import { LoginService } from 'src/app/login/login.service';
 import { User } from 'src/app/login/User';
 @Component({
@@ -9,9 +11,15 @@ import { User } from 'src/app/login/User';
 })
 export class AdminViewallaccountComponent implements OnInit {
   users: User[] = [];
-  constructor(private _activatedRoute: ActivatedRoute, private _LoginService: LoginService, private _router: Router) { }
+  constructor(private _activatedRoute: ActivatedRoute, private _LoginService: LoginService,private CustomerService:CustomerService ,private _router: Router) { }
   userss:User[]=[];
   
+  customers:CustomerRegistration[] = [];
+  customer: CustomerRegistration = new CustomerRegistration(0,"","",0,"",new Date(),0,"","");
+
+  
+
+
 ngOnInit() {
   this._LoginService.getAllUser().subscribe(
     data => {
@@ -19,8 +27,18 @@ ngOnInit() {
       this.users.forEach(user=>{
         if(user.role === 'ROLE_CUSTOMER'){
           this.userss.push(user);
+          console.log(this.userss);
         }
       })
+    }),
+
+    this.CustomerService.getAllUser().subscribe(data=>{
+      this.customers =data;
+      this.customers.forEach(element => {
+        if(element.email == sessionStorage.getItem("email")){
+          this.customer = element;
+        }
+      });
     },
 
     error => {

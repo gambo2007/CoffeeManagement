@@ -14,4 +14,8 @@ export class OwnerService{
         let url = "http://localhost:9090/owner/register";
         return this._httpClient.post<OwnerRegistration>(url,owner);
     }
+    getAllUser():Observable<OwnerRegistration[]>{
+        let url: string = "http://localhost:9090/owner/getall";
+        return this._httpClient.get<OwnerRegistration[]>(url);
+    }
 }

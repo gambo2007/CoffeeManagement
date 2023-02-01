@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl("customer/dashboard/menu-view")
       }
       if(data.role ==='ROLE_ADMIN'){
-        this.router.navigateByUrl("admin/dashboard")
+        this.router.navigateByUrl("admin/dashboard/onwer-view")
       }
       if(data.role ==='ROLE_Owner'){
         this.router.navigateByUrl("owner/dashboard/menu")

@@ -1,0 +1,55 @@
+<div class="card">
+  <div class="card-body">
+
+
+    <table>
+      <tr>
+        <td>
+            <table id="tb1" class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Account Name</th>
+                  <th scope="col">Role</th>
+                  <th scope="col">&nbsp;</th>
+                  <th scope="col">&nbsp;</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr id="row1" *ngFor="let user of userss">
+                  <th scope="row">{{user.login_id}}</th>
+                  <td>{{user.username}}</td>
+                  <td>{{user.role}}</td>
+                </tr>
+              </tbody>
+            </table>
+        </td>
+        <td>
+            <table id="tb2" class="table table-striped">
+              <thead>
+                <tr id="row2">
+                  <th scope="col">CustomerName</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Phone Number</th>
+                  <th scope="col">Address</th>
+                  <th scope="col">BirthDate</th>
+                  <th scope="col">&nbsp;</th>
+                  <th scope="col">&nbsp;</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let customer of customers">
+                  <th scope="row">{{customer.cusName}}</th>
+                  <td>{{customer.email}}</td>
+                  <td>{{customer.phoneNumber}}</td>
+                  <td>{{customer.address}}</td>
+                  <td>{{customer.bod|date}}</td>
+                  <td><a type="submit" (click)="deleteAcc()" style="height: 3%; color:gray; text-decoration: underline;">Delete</a></td>
+                </tr>
+              </tbody>
+            </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

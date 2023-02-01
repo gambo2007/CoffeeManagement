@@ -1,0 +1,72 @@
+<div class="card">
+  <div class="card-header">
+    <h3>Add Menu</h3>
+  </div>
+  <div class="card-body">
+    <form #addCoffeeForm="ngForm" novalidate (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Menu Name</label>
+            <input type="text" class="form-control" 
+                    [class.is-invalid]="name.touched && name.invalid && (!addCoffeeForm.submitted)" 
+                    name="name" #name="ngModel" 
+                    required [(ngModel)]="coffee.coffee_name">
+                    <small class="text-danger" [class.d-none]="name.untouched || name.valid || addCoffeeForm.submitted">
+                      Menu name is required
+                    </small>
+        </div>
+
+        <div class="form-group">
+          <label>Description</label>
+          <input type="text" class="form-control" 
+                  [class.is-invalid]="brand.touched && brand.invalid && (!addCoffeeForm.submitted)" 
+                  name="brand" #brand="ngModel" 
+                  required [(ngModel)]="coffee.desc">
+                  <small class="text-danger" [class.d-none]="brand.untouched || brand.valid || addCoffeeForm.submitted">
+                    Description is required
+                  </small>
+        </div>
+
+        <div class="form-group">
+          <label>Select Item image from device</label>
+          <input type="file" accept="image/*" (change)="onSelectFile($event)">
+          <img [src]="imgURL" height="200" *ngIf="imgURL">
+        </div>
+
+        
+
+        <div class="form-group">
+          <label>Price</label>
+          <input type="text" class="form-control" 
+                  [class.is-invalid]="price.touched && price.invalid && (!addCoffeeForm.submitted)" 
+                  name="price" #price="ngModel" 
+                  required [(ngModel)]="coffee.price">
+                  <small class="text-danger" [class.d-none]="price.untouched || price.valid || addCoffeeForm.submitted">
+                    Price is required
+                  </small>
+        </div>
+
+        <div class="form-group">
+            <label>Menu</label>
+            <select class="custom-select" required 
+                    [class.is-invalid]="menu_name.touched && menu_name.invalid && (!addCoffeeForm.submitted)"
+                    name="menu_name" #menu_name="ngModel" [(ngModel)]="coffee.menu.menu_name">
+                <option value="">Select menu</option>
+                <option *ngFor="let menu of menus">
+                    {{menu.menu_name}}
+                </option>
+            </select>
+            <small class="text-danger" [class.d-none]="menu_name.untouched || menu_name.valid || addCoffeeForm.submitted">Please select menu</small>
+            
+        </div>
+
+        
+
+        <button [disabled]="addCoffeeForm.invalid" class="btn btn-primary" type="submit">Add</button>
+
+
+    </form>
+      
+  
+  
+  </div>
+</div>

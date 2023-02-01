@@ -1,0 +1,34 @@
+<body id="bodypro">
+    <div class="container" >
+        <div class="box">
+            <img src="../assets/images/icon.png" alt="Image">
+            <ul>
+                <li id="name">{{user.cusName}}</li>
+                
+            </ul>
+        </div>
+        <div class="About">
+            <ul>
+                <h1>About</h1>
+            </ul>
+            <ul>
+                <h3>BirthDate</h3>
+                <li id="bod">{{user.bod}}</li>
+            </ul>
+            <ul>
+                <h3>Address</h3>
+                <li id="address">{{user.address}}</li>
+            </ul>
+            <ul>
+                <h3>PhoneNumber</h3>
+                <li id="phonenumber">{{user.phoneNumber}}</li>
+            </ul>
+            <ul>
+                <h3>Email</h3>
+                <li id="email">{{user.email}}</li>
+            </ul>
+        </div>
+        
+    </div>
+</body>
+<router-outlet></router-outlet>

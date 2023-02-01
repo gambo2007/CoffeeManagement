@@ -1,0 +1,31 @@
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact</title>
+</head>
+<body>
+  <div class="rowcontact">
+    <div id="map" class="z-depth-1-half map mb-4">
+        <iframe src="https://maps.google.com/maps?q=Vietnam&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0"
+          style="border:0"></iframe>
+    </div>
+    <div class="columncontact">
+      <form name="tth" #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <label  for="name">Name</label>
+        <input class="tex" type="text" id="name" name="name" placeholder="Enter Your name..">
+        <br><label for="email">Email</label>
+        <input class="tex" type="text" id="email" name="email" placeholder="Enter Your Email..">
+        <br><label for="country">Country</label>
+        <input class="tex" type="text" name="country" id="country" placeholder="Enter Your Country...">
+        <br><label for="subject">Subject</label>
+        <textarea class="tex" id="subject" name="subject" placeholder="Write something.."></textarea>
+        <br><input class="inp" type="submit" value="Submit">
+        <p><i class="fa-solid fa-location-dot"></i> Address: 123/12/3 abc f2 Binh Thanh HCM city</p>
+        <p><i class="fa-solid fa-phone-volume"></i> HotLine: +84 0123456789</p>
+        <p><i class="fa-regular fa-envelope"></i> Email:taithinhhiep@gmail.com</p>
+      </form>
+    </div>
+    
+</div>
+</body>

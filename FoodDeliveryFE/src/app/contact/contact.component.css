@@ -1,0 +1,60 @@
+body{
+    background-image: url("../../assets/images/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 87.3%;
+    
+}
+.map{
+    overflow:hidden;
+  }
+.map iframe {
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    margin-right: 200px;
+    opacity: 70%;
+}
+.inp{
+    background-color: white;
+    color: black;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 #54b3d6;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+.inp:hover {
+    box-shadow: inset 100px 0 0 0 #54b3d6;
+    color: white;
+}
+.tex{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+.rowcontact{
+    display: flex;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    background: rgba(255, 255, 255, 0.155);
+    width: 70%;
+    height: 80%;
+    margin-left: 250px;
+}
+
+.columncontact {    
+    width: 50%;
+    padding: 20px;
+    color: white;
+}
+
+#subject{
+    height: 100px;
+}

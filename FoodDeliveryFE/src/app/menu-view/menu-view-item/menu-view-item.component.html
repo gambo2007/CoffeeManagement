@@ -1,0 +1,25 @@
+
+<div style="position:fixed; right:80px; top:150px"><h3>{{cartnum}}<i class="fas fa-shopping-cart" style="font-size:25px;"></i></h3></div>
+<div class="container mt-5 mb-5">
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-10">
+            <div class="row p-2 bg-white border rounded" *ngFor="let coffee of coffees">
+                <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src={{coffee.img}}></div>
+                <div class="col-md-6 mt-1">
+                    <h5>{{coffee.coffee_name}}</h5>
+                    <p class="text-justify text-truncate para mb-0">{{coffee.desc}}<br><br></p>
+                </div>
+                <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                    <div class="d-flex flex-row align-items-center">
+                        <h4 class="mr-1">{{coffee.price  | currency: '$':'symbol':'.0':'it' }}</h4>
+                    </div>
+                    <h6 class="text-success">Free shipping</h6>
+                    <div class="d-flex flex-column mt-4"><button class="btn btn-secondary btn-sm"(click)="addToCart(coffee)" type="button" style="background-color: gray;">Add to Cart</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <router-outlet></router-outlet>
+</div>
